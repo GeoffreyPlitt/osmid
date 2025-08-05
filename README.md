@@ -31,6 +31,8 @@ For build instruction see INSTALL.md.
 osmid is built using C++14 features. The build system is based on cmake. Tested target compiler in Windows is MSVC 2015 Win64, in Linux is gcc 4.9 or later, and on Mac, clang 5.1
 or later. Under Windows, prepare using something like: `cmake -G "Visual Studio 16 2019" -A x64 .. `. On Linux and Mac `cmake ..` should be enough.
 
+**Note for macOS users**: The CMake minimum version has been updated to 3.5 to support modern macOS builds. Additionally, a fix has been applied to handle the removal of `objc_msgSend_fpret` in newer macOS SDKs.
+
 osmid uses the following libs:
 * JUCE for the midi handling and OSC handling (included in the tree)
 * oscpack, for the OSC handling and UDP networking (included in the tree)
