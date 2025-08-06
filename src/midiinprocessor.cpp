@@ -71,7 +71,12 @@ void MidiInProcessor::handleIncomingMidiMessage(MidiInput* source, const juce::M
         break;
 
     case 0x90:
-        message_type = "note_on";
+        // Note-on with velocity 0 should be treated as note-off
+        if (nBytes == 3 && message[2] == 0) {
+            message_type = "note_off";
+        } else {
+            message_type = "note_on";
+        }
         assert(nBytes == 3);
         break;
 
